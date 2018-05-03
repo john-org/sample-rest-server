@@ -15,7 +15,7 @@ pipeline {
             }
          }
       }
-            stage('Development Tests') {
+      stage('Development Tests') {
          when {
             beforeAgent true
             branch 'development'
@@ -24,5 +24,15 @@ pipeline {
             echo "Run the development tests!"
          }
       }
+
+      stage('Masters Tests') {
+         when {
+            branch 'master'
+         }
+         steps {
+            echo "Run the master tests!"
+         }
+      }
+
    }
 }
